@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('plants', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->decimal('price');
-            $table->string('image');;
-            $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnDelete();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->string('category');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plants');
+        Schema::dropIfExists('categories');
     }
 };
